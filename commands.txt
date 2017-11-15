@@ -1,0 +1,28 @@
+HBASE Command to create table:
+
+create 'clicks', {NAME =>'hits', version => 5}
+
+HBASE Command to verify the table is created
+list
+describe 'clicks'
+
+
+HBASE Commands to put some records and also update some
+
+put 'clicks', '10.5.2.15','hits:total_hits', '3'
+put 'clicks', '10.5.2.15','hits:users_visited', 'rob,tom,harry'
+put 'clicks', '10.5.2.18','hits:total_hits', '2'
+put 'clicks', '10.5.2.18','hits:users_visited', 'reid,roy'
+put 'clicks', '10.5.2.15','hits:total_hits', '5'
+put 'clicks', '10.5.2.15','hits:users_visited', 'rob,tom,harry,john,larry'
+put 'clicks', '10.5.2.18','hits:total_hits', '4'
+put 'clicks', '10.5.2.18','hits:users_visited', 'reid,roy,ashok,sheetal'
+put 'clicks', '10.5.2.15','hits:total_hits', '6'
+put 'clicks', '10.5.2.15','hits:users_visited', 'rob,tom,harry,john,larry,sachin'
+put 'clicks', '10.5.2.19','hits:total_hits', '1'
+put 'clicks', '10.5.2.19','hits:users_visited', 'anonymous'
+
+
+HBASE Command to display all the version
+
+scan 'clicks', {RAW => true, VERSIONS => 5 }
